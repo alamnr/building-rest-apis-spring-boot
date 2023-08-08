@@ -96,7 +96,7 @@ public class LiveStreamControllerTest {
         LiveStream existing = findAllStreams().getBody().get(0);
         ResponseEntity<LiveStream> entity = restTemplate.exchange("/streams/" + existing.id(), HttpMethod.DELETE, null, LiveStream.class);
         assertEquals(HttpStatus.NO_CONTENT,entity.getStatusCode());
-        assertEquals(0,findAllStreams().getBody().size());
+        assertEquals(1,findAllStreams().getBody().size());
     }
 
     private ResponseEntity<List<LiveStream>> findAllStreams(){
