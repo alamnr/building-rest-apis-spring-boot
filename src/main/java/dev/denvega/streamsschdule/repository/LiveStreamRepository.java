@@ -39,8 +39,12 @@ public class LiveStreamRepository {
         streams.set(i,stream);
     }
 
-    public void delete(String id){
-        streams.removeIf(stream -> stream.id().equals(id));
+    public void delete(String id) throws LiveStreamException {
+        if(streams.stream().noneMatch(stream -> stream.id().equals(id))){
+            throw  new LiveStreamException();
+        } else {
+            streams.removeIf(stream -> stream.id().equals(id));
+        }
     }
 
 }

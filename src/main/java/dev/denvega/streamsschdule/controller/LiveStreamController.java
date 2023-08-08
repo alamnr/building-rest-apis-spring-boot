@@ -75,7 +75,7 @@ public class LiveStreamController {
     // Delete http://localhost:8080/streams/9c9c4ab1-8457-456f-aaf4-45fa3c29b41b
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{id}")
-    public void delete(@PathVariable String id){
+    public void delete(@PathVariable String id) throws LiveStreamException {
         repository.delete(id);
     }
 }
